@@ -1,8 +1,6 @@
 class Solution {
     public int[] sortArrayByParity(int[] nums) {
-        if(nums.length==1){
-return nums;
-        }
+       
         int i=0,even=0,odd=0,j=nums.length-1;
         
         for(int k=0;k<nums.length;k++){

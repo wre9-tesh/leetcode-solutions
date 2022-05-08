@@ -1,30 +1,23 @@
 class Solution {
     public boolean judgeCircle(String s) {
-        int[] arr={0,0};
-        int[] ans={0,0};
-        
+        int x=0,y=0;
         char[] move=s.toCharArray();
         for(int i=0;i<move.length;i++) {
             switch (move[i]) {
                 case 'R':
-                    arr[0]++;
+                    x++;
                     break;
                 case 'L':
-                    arr[0]--;
+                    x--;
                     break;
                 case 'U':
-                    arr[1]++;
+                    y++;
                     break;
                 case 'D':
-                    arr[1]--;
+                    y--;
                     break;
             }
         }
-        if(arr[0]== 0 && arr[1]== 0){
-    return true;
-        }
-           
-        
-    return false;    
+        return x==0 && y==0;
     }
 }

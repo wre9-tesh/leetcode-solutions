@@ -7,18 +7,18 @@ class Solution {
         while(i<s.length()){
             if(s.charAt(i) == 'G'){
                 str.append("G");
+                    i++;
             }
             else if (s.charAt(i)== '('){
                 if(s.charAt(i+1) == ')' ){
                     str.append("o");
-                    i++;
+                    i+=2;
                 }
                 else{
                     str.append("al");
-                    i+=3;
+                    i+=4;
                 }
             }
-            i++;
         }
         
         return str.toString();

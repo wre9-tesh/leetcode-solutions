@@ -1,6 +1,10 @@
 class Solution {
     public int[] getNoZeroIntegers(int n) {
-            for(int i = 1 ;i<n;i++){
+        if(n == 2){
+        return new int[] {1,1};
+        }
+        
+            for(int i = 1 ;i<n/2;i++){
                 if(checkzero(i) && checkzero(n-i)){
                     return new int[] {i,n-i};
                 }

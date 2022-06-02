@@ -3,19 +3,26 @@ class Solution {
       char[] c = word.toCharArray();
         
         int locate = word.indexOf(ch);
-        if(locate > -1){
+                if(locate == -1){
+                    return word;
+                }        
         
-         char[] res = new char[word.length()];
-        for (int i = 0; i <= locate; i++) {
-            res[i] = c[locate - i];
-        }
-        for (int i = locate + 1; i < word.length(); i++) {
-            res[i] = c[i];
-        }
-        return String.valueOf(res);
+        int i=0;
+        
+        while(i < locate){
+            
+            swap(c,i,locate);
+            i++;
+            locate--;
+            
         }
         
         
-        return word;
+        return String.copyValueOf(c);
+    }
+    void swap(char[] arr , int start ,int end){
+        char temp =arr[start];
+        arr[start]= arr[end];
+        arr[end]=temp;
     }
 }

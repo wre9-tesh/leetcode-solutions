@@ -1,18 +1,14 @@
 class Solution {
     public int arraySign(int[] nums) {
+
         int ans = 1;
-        int prod =0;
-        
         for(int i:nums){
-       ans*=i;         
-            if(ans == 0){
-                break;
+            
+            if(i == 0){
+               return 0;
             }
-            else if (ans < 0){
-               ans = -1 ; 
-            }
-            else{
-                ans =1;
+            else if (i < 0){
+                ans = -ans;  
             }
     }
     

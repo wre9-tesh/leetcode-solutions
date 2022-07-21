@@ -1,23 +1,13 @@
 class Solution {
     public int findComplement(int n) {
-
-        if(n ==0){
+        if(n == 0){
             return 1;
         }
-        int i =0,j=0;
-        while(n != 0){
-            
-            if((n&1)== 0){
-             i += Math.pow(2,j);
-            } 
-            
-            n >>= 1;
-            
-            j++;
-        }
         
+        int a = Integer.toBinaryString(n).length() ;
         
-        return i;
-
+        a = (1 << a) - 1 ;
+        
+        return n ^ a;
     }
 }

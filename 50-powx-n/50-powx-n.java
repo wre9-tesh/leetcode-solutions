@@ -1,28 +1,28 @@
 class Solution {
     public double myPow(double x, int n) {
      
-        if(x == 1){
-            return 1;
+        if(n < 0){
+                n = -n;
+                x = 1/x;
         }
         
+        double curr =  1;
         
-        double ans = helper(x,n);
-        return  n > 0 ? ans: 1/ans;
-    }
-    
-     public double helper(double x, int n){
-               
-        int exp = Math.abs(n);
-         
-             if(exp == 0 )
-             {    
-             return 1;
-             }
-           
-             if(exp % 2 == 0){
-             return helper(x*x,exp/2);
-             }
+        while(n != 0){
+            
+            if((n & 1) != 0){
+                
+                curr *= x;
+            }     
+            
+            x = x*x;
+            
+            n >>>= 1;
+            
+            
+        }
+
         
-          return  x * (helper(x*x,(exp-1)/2));
+        return curr;
+    } 
      }         
-}

@@ -1,30 +1,20 @@
 class Solution {
     public int[] sortArrayByParityII(int[] nums) {
         
-        int i=0,j=nums.length-1;
+        int i=0,j=1,n=nums.length;
         
         
-    while(i<nums.length-1){
-         
-        if(i % 2 == 0 && nums[i] % 2 == 0){
-            i++;
-            j =nums.length - 1;
-
+    while(i<n && j<n){
+        
+        while(i<n && nums[i] % 2 == 0 ){
+            i+=2;
         }
+        while(j<n && nums[j] % 2 == 1){
+            j+=2;
+        }       
         
-        else if(i % 2 == 0 && nums[i] % 2 != 0){
+        if(i<n && j<n){
             swap(i,j,nums);
-            j--;
-        }
-        
-        else if(i % 2 != 0 && nums[i] % 2 != 0){
-            i++;
-            j =nums.length - 1;
-        }
-        
-        else{
-            swap(i,j,nums);
-            j--;
         }
        
     }

@@ -1,66 +1,58 @@
 class Solution {
     public int totalNQueens(int n) {
+    
+        boolean[][] arr = new boolean[n][n];
         
-        boolean[][] board = new boolean[n][n]; 
+        return Queens(arr,0);
         
-        return numberOfSol(board,0);
+        
     }
     
-    
-    public int numberOfSol(boolean[][] arr,int row){
+    public int Queens(boolean[][] arr,int row){
         
-        if(row == arr.length){
-            return 1;
-        }
+      if(row == arr.length){
+          return 1;
+      } 
         
         int count =0;
         
-        for(int col=0;col<arr.length;col++){
-    
-               if(isSafe(arr,row,col)){
-                   
-                   arr[row][col] = true; 
-                   
-                 count += numberOfSol(arr,row+1);
-                    
-                   arr[row][col] = false;
-                }
-        }
-                   
-            return count;
+      for(int col=0;col<arr.length;col++){
+          
+        if(isSafe(arr,row,col)){
+                
+            arr[row][col] = true;
+            count += Queens(arr,row+1);
+            arr[row][col] = false;
+            
+        }       
+      }
+        
+        return count;
     }
     
     public boolean isSafe(boolean[][] arr,int row,int col){
-//         vertical 
-        for(int i = 1;i<=row;++i){
-               if(arr[row - i][col]){
-                   return false;
-               } 
+        
+        
+        for(int i = 0 ; i < row ; i++ ){
+                if(arr[i][col]){
+                    return false;
+                }            
+
         }
-        
-//         diagonal left
-        int maxLeft = Math.min(row,col);
-        
-        for(int i = 1; i <= maxLeft ;i++){
-            
+//         for diagonal left
+        for(int i = 1 ; i <= Math.min(row,col);i++){
             if(arr[row-i][col-i]){
                 return false;
             }
-            
         }
         
-          int maxRight =  Math.min(row,arr.length - 1 - col);
-        
-        for(int i = 1; i <= maxRight ;i++){
-            
+//      for diagonal right   
+        for(int i = 1 ; i <= Math.min(row,arr.length-col-1);i++){
             if(arr[row-i][col+i]){
                 return false;
             }
-            
         }
         
-   
         return true;
-    }
-
+    }    
 }

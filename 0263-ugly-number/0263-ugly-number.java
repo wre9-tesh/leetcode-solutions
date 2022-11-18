@@ -4,24 +4,11 @@ class Solution {
             return false;
         }
         
-        while(n % 2 == 0){
-            
-            n /= 2;
-        }
-         while(n % 3 == 0){
-            
-            n /= 3;
-        }
-         while(n % 5 == 0){
-            
-            n /= 5;
-        }
+       for(int i=2 ; i<6 && n > 0 ;i++)
+           while(n % i == 0){
+               n /= i;
+           }
         
-        if(n == 1){
-            return true;
-        }
-        
-        
-        return false;
+        return n == 1;
     }
 }
